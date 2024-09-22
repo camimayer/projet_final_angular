@@ -9,7 +9,22 @@ import { AuthService } from './auth.service';
 export class TaskApiService {
   private apiUrl = 'https://monkfish-app-9x56s.ondigitalocean.app/v1/tasks';
 
+
   constructor(private http: HttpClient, private authService: AuthService) { }
+
+  getTasksCreatedByUsers(uid: string): Observable<any>{
+    const headers = new HttpHeaders({
+      'x-access-token': this.authService.getToken() || "",
+    });
+    return this.http.get(`${this.apiUrl}/createdby/${uid}`, { headers })
+  }
+
+  getTasksAssignedToUsers(uid: string): Observable<any>{
+    const headers = new HttpHeaders({
+      'x-access-token': this.authService.getToken() || "",
+    });
+    return this.http.get(`${this.apiUrl}/assignedto/${uid}`, { headers })
+  }
 
   getTasksCreatedBy(token: string): Observable<any>{
     const headers = new HttpHeaders({

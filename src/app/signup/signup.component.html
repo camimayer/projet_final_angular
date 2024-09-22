@@ -1,4 +1,4 @@
-<div class="signup-container">
+<div class="signup-container" [ngClass]="{'mobile-no-border': isMobile}">
     <mat-card>
         <mat-card-title>Sign Up</mat-card-title>
         <form [formGroup]="signupForm" (ngSubmit)="onSignUp()">

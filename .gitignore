@@ -2,3 +2,5 @@
 
 # Built application files
 *node_modules/*
+*.angular/*
+*dist

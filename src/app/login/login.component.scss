@@ -56,3 +56,8 @@ button[type="submit"]:hover{
     background-color: #303f9f;
     color: #f4f5f7;
 }
+.mobile-no-border {
+    border: none !important;
+    box-shadow: none !important;
+    background-color: transparent;
+  }
