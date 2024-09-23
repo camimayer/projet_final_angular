@@ -1,8 +1,12 @@
-<form [formGroup] = "editForm" (ngSubmit) = "onSubmit()">
-    <mat-form-field>
-        <input matInput placeholder="Description" formControlName="description"/>
-        <mat-error>Description is Required</mat-error>
-    </mat-form-field>
-
-    <button mat-raised-button color="primary" type="submit">Save</button>
-</form>
+<div class="create-task">
+    <h2>Edit Task</h2>
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description" placeholder="Description" required>
+        <mat-error *ngIf="editForm.get('description')?.hasError('required')">Description is Required</mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="editForm.invalid">Save</button>
+    </form>
+  </div>
+  
